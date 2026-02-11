@@ -1,18 +1,25 @@
 {
   "name": "pi-omni-compact",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Pi extension that delegates compaction to a large-context model subprocess",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "oxlint -c .oxlintrc.json",
-    "lint:fix": "oxlint -c .oxlintrc.json --fix",
-    "format": "oxfmt --config .oxfmtrc.jsonc",
-    "format:check": "oxfmt --config .oxfmtrc.jsonc --check",
-    "check": "ultracite check",
-    "fix": "ultracite fix"
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint -c .oxlintrc.json src tests",
+    "lint:fix": "oxlint -c .oxlintrc.json src tests --fix",
+    "format": "oxfmt --config .oxfmtrc.jsonc src tests",
+    "format:check": "oxfmt --config .oxfmtrc.jsonc src tests --check",
+    "validate": "npm run typecheck && npm run lint && npm run format:check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +29,13 @@
     "@factory/eslint-plugin": "^0.1.0",
     "@types/node": "^25.2.2",
     "oxfmt": "^0.28.0",
+    "oxlint": "^1.43.0",
     "typescript": "^5.9.3",
-    "ultracite": "^7.1.5"
+    "ultracite": "^7.1.5",
+    "vitest": "^4.0.18"
+  },
+  "dependencies": {
+    "@mariozechner/pi-agent-core": "^0.52.9",
+    "@mariozechner/pi-coding-agent": "^0.52.9"
   }
 }
