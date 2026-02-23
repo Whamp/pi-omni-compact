@@ -65,8 +65,8 @@ Edit `settings.json` in the extension directory to configure which models to try
 ```json
 {
   "models": [
-    { "provider": "google-antigravity", "id": "gemini-3-flash", "thinking": "high" },
-    { "provider": "google-antigravity", "id": "gemini-3-pro-low", "thinking": "high" }
+    { "provider": "google-gemini-cli", "id": "gemini-3-flash-preview", "thinking": "high" },
+    { "provider": "google-gemini-cli", "id": "gemini-3-pro-preview", "thinking": "high" }
   ],
   "debugCompactions": false,
   "minSummaryChars": 100
