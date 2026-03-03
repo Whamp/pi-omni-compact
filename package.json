@@ -1,6 +1,6 @@
 {
   "name": "pi-omni-compact",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Pi extension that delegates compaction to a large-context model subprocess",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
